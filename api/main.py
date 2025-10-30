@@ -7,7 +7,6 @@ from typing import Optional
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from fastapi.middleware.cors import CORSMiddleware
-from mangum import Mangum
 import numpy as np
 import pandas as pd
 import uvicorn
@@ -270,7 +269,6 @@ async def recommend(req: RecommendationRequest, x_api_key: Optional[str] = Heade
         print("❌ Recommender Error:", str(e))
         traceback.print_exc()
         return {"success": False, "error": str(e)}
-handler = Mangum(app)
 
 # ======================
 # 🚀 Run
